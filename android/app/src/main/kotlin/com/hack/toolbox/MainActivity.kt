@@ -1,4 +1,4 @@
-package com.hack.toolbox.tool_box
+package com.hack.toolbox
 
 import io.flutter.embedding.android.FlutterActivity
 
