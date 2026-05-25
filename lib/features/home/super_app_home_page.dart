@@ -40,7 +40,7 @@ class SuperAppHomePage extends StatelessWidget {
                               physics: const NeverScrollableScrollPhysics(),
                               crossAxisSpacing: 20,
                               mainAxisSpacing: 20,
-                              childAspectRatio: isWide ? 1.35 : 1.75,
+                              childAspectRatio: 1.35,
                               children: const [
                                 _ToolCard(
                                   icon: '📄',
