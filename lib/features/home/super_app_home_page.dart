@@ -248,9 +248,15 @@ class _Footer extends StatelessWidget {
       child: Column(
         children: [
           TextButton(
-            onPressed: kIsWeb
-                ? () => Navigator.of(context).pushNamed(App.routePrivacy)
-                : () => Navigator.of(context).pushNamed(App.routeEzPdfPrivacy),
+            onPressed: () async {
+              final uri = Uri.parse(
+                'https://skek933.cafe24.com/privacy',
+              );
+              await launchUrl(
+                uri,
+                mode: LaunchMode.externalApplication,
+              );
+            },
             child: const Text('개인정보 처리방침'),
           ),
           Text(

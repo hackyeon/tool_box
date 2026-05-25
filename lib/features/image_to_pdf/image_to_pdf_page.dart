@@ -5,7 +5,6 @@ import 'image_to_pdf_view_model.dart';
 import 'package:desktop_drop/desktop_drop.dart';
 import 'package:cross_file/cross_file.dart';
 import 'package:flutter/foundation.dart';
-import '../privacy/ez_pdf_privacy_page.dart';
 
 class ImageToPdfPage extends StatefulWidget {
   const ImageToPdfPage({super.key});
@@ -79,7 +78,7 @@ class _ImageToPdfPageState extends State<ImageToPdfPage> {
                         child: BannerAdWidget(),
                       ),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 8, 20, 0),
+                      padding: const EdgeInsets.fromLTRB(20, 8, 20, 8),
                       child: SizedBox(
                         width: double.infinity,
                         height: 56,
@@ -92,17 +91,6 @@ class _ImageToPdfPageState extends State<ImageToPdfPage> {
                         ),
                       ),
                     ),
-                    if(!kIsWeb)
-                      TextButton(
-                        onPressed: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (_) => const EzPdfPrivacyPage(),
-                            ),
-                          );
-                        },
-                        child: const Text('개인정보 처리방침'),
-                      ),
                   ],
                 ),
 
