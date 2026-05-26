@@ -34,7 +34,6 @@ build/
 **/generated_plugin_registrant.dart
 
 # Flutter web
-lib/generated_plugin_registrant.dart
 
 # Symbolication
 app.*.symbols
