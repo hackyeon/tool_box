@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../core/ads/ad_support.dart';
 import '../../core/ads/banner_ad_widget.dart';
 import 'image_to_pdf_view_model.dart';
 import 'package:desktop_drop/desktop_drop.dart';
@@ -72,7 +73,7 @@ class _ImageToPdfPageState extends State<ImageToPdfPage> {
                         viewModel: viewModel,
                       ),
                     ),
-                    if (!kIsWeb)
+                    if (isMobileAdSupported)
                       const Padding(
                         padding: EdgeInsets.only(top: 8),
                         child: BannerAdWidget(),

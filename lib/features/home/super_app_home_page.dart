@@ -1,8 +1,9 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../app.dart';
+import '../../core/ads/ad_support.dart';
+import '../../core/ads/banner_ad_widget.dart';
 import '../../core/constants/app_links.dart';
 
 class SuperAppHomePage extends StatelessWidget {
@@ -59,6 +60,10 @@ class SuperAppHomePage extends StatelessWidget {
                             );
                           },
                         ),
+                        if (isMobileAdSupported) ...[
+                          const SizedBox(height: 28),
+                          const Center(child: BannerAdWidget()),
+                        ],
                         const SizedBox(height: 40),
                         const _ContactCard(),
                         const SizedBox(height: 28),
