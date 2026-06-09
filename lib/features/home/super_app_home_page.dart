@@ -51,6 +51,13 @@ class SuperAppHomePage extends StatelessWidget {
                                   routeName: App.routeEzPdf,
                                 ),
                                 _ToolCard(
+                                  icon: '▦',
+                                  title: 'QR 생성기',
+                                  description: '링크, 와이파이, 연락처 정보를 QR 코드로 쉽게 만들어 보세요.',
+                                  buttonText: '시작하기',
+                                  routeName: App.routeQrGenerator,
+                                ),
+                                _ToolCard(
                                   icon: '🛠️',
                                   title: '준비 중',
                                   description: '새로운 도구를 준비하고 있습니다.',
