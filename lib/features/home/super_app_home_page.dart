@@ -35,33 +35,42 @@ class SuperAppHomePage extends StatelessWidget {
                         LayoutBuilder(
                           builder: (context, constraints) {
                             final isWide = constraints.maxWidth >= 640;
-                            return GridView.count(
-                              crossAxisCount: isWide ? 2 : 1,
-                              shrinkWrap: true,
-                              physics: const NeverScrollableScrollPhysics(),
-                              crossAxisSpacing: 20,
-                              mainAxisSpacing: 20,
-                              childAspectRatio: 1.15,
-                              children: const [
-                                _ToolCard(
-                                  icon: '📄',
-                                  title: 'EZ PDF',
-                                  description: '사진 여러 장을 하나의 PDF 문서로 쉽게 변환해 보세요.',
-                                  buttonText: '시작하기',
-                                  routeName: App.routeEzPdf,
+                            final cardWidth = isWide
+                                ? (constraints.maxWidth - 20) / 2
+                                : constraints.maxWidth;
+
+                            return Wrap(
+                              spacing: 20,
+                              runSpacing: 20,
+                              children: [
+                                SizedBox(
+                                  width: cardWidth,
+                                  child: const _ToolCard(
+                                    icon: '📄',
+                                    title: 'EZ PDF',
+                                    description: '사진 여러 장을 하나의 PDF 문서로 쉽게 변환해 보세요.',
+                                    buttonText: '시작하기',
+                                    routeName: App.routeEzPdf,
+                                  ),
                                 ),
-                                _ToolCard(
-                                  icon: '▦',
-                                  title: 'QR 생성기',
-                                  description: '링크, 와이파이, 연락처 정보를 QR 코드로 쉽게 만들어 보세요.',
-                                  buttonText: '시작하기',
-                                  routeName: App.routeQrGenerator,
+                                SizedBox(
+                                  width: cardWidth,
+                                  child: const _ToolCard(
+                                    icon: '▦',
+                                    title: 'QR 생성기',
+                                    description: '링크, 와이파이, 연락처 정보를 QR 코드로 쉽게 만들어 보세요.',
+                                    buttonText: '시작하기',
+                                    routeName: App.routeQrGenerator,
+                                  ),
                                 ),
-                                _ToolCard(
-                                  icon: '🛠️',
-                                  title: '준비 중',
-                                  description: '새로운 도구를 준비하고 있습니다.',
-                                  buttonText: 'Coming Soon',
+                                SizedBox(
+                                  width: cardWidth,
+                                  child: const _ToolCard(
+                                    icon: '🛠️',
+                                    title: '준비 중',
+                                    description: '새로운 도구를 준비하고 있습니다.',
+                                    buttonText: 'Coming Soon',
+                                  ),
                                 ),
                               ],
                             );
@@ -175,15 +184,14 @@ class _ToolCard extends StatelessWidget {
                   ),
             ),
             const SizedBox(height: 8),
-            Expanded(
-              child: Text(
-                description,
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: Theme.of(context).colorScheme.onSurfaceVariant,
-                      height: 1.45,
-                    ),
-              ),
+            Text(
+              description,
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                    height: 1.45,
+                  ),
             ),
+            const SizedBox(height: 18),
             FilledButton(
               onPressed: enabled ? () => Navigator.of(context).pushNamed(routeName!) : null,
               child: Text(buttonText),
