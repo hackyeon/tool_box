@@ -26,7 +26,7 @@ class SuperAppHomePage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          '앱 리스트',
+                          '도구 목록',
                           style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                                 fontWeight: FontWeight.w800,
                               ),
@@ -46,14 +46,14 @@ class SuperAppHomePage extends StatelessWidget {
                                 _ToolCard(
                                   icon: '📄',
                                   title: 'EZ PDF',
-                                  description: '이미지를 간편하게 PDF로 변환할 수 있는 무료 도구입니다.',
+                                  description: '사진 여러 장을 하나의 PDF 문서로 쉽게 변환해 보세요.',
                                   buttonText: '시작하기',
                                   routeName: App.routeEzPdf,
                                 ),
                                 _ToolCard(
                                   icon: '🛠️',
                                   title: '준비 중',
-                                  description: '다음으로 만들 작은 도구를 준비하고 있습니다.',
+                                  description: '새로운 도구를 준비하고 있습니다.',
                                   buttonText: 'Coming Soon',
                                 ),
                               ],
@@ -99,7 +99,7 @@ class _HeroSection extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            '일상을 편안하게 해주는 앱을 만들어요',
+            '일상을 더 편리하게',
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                   color: Colors.white,
@@ -108,7 +108,7 @@ class _HeroSection extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           Text(
-            '작지만 유용한 도구들을 하나의 앱에서 사용할 수 있습니다.',
+            '작지만 유용한 도구들을 한곳에 모았습니다.',
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.titleMedium?.copyWith(
                   color: Colors.white.withOpacity(0.9),
