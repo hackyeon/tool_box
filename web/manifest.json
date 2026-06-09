@@ -1,11 +1,11 @@
 {
-    "name": "ToolBox",
-    "short_name": "ToolBox",
+    "name": "편한도구함",
+    "short_name": "편한도구함",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "tool box",
+    "description": "편한도구함",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
