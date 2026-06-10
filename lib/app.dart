@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
+import 'core/theme/app_theme.dart';
 import 'features/home/super_app_home_page.dart';
 import 'features/image_to_pdf/image_to_pdf_page.dart';
 import 'features/qr_generator/qr_generator_page.dart';
@@ -13,19 +15,19 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: '편한도구함',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorSchemeSeed: Colors.blue,
-        useMaterial3: true,
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: AppTheme.systemUiOverlayStyle,
+      child: MaterialApp(
+        title: '편한도구함',
+        debugShowCheckedModeBanner: false,
+        theme: AppTheme.light,
+        initialRoute: routeHome,
+        routes: {
+          routeHome: (_) => const SuperAppHomePage(),
+          routeEzPdf: (_) => const ImageToPdfPage(),
+          routeQrGenerator: (_) => const QrGeneratorPage(),
+        },
       ),
-      initialRoute: routeHome,
-      routes: {
-        routeHome: (_) => const SuperAppHomePage(),
-        routeEzPdf: (_) => const ImageToPdfPage(),
-        routeQrGenerator: (_) => const QrGeneratorPage(),
-      },
     );
   }
 }

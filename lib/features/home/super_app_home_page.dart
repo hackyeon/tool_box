@@ -12,11 +12,12 @@ class SuperAppHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: CustomScrollView(
-          slivers: [
-            const SliverToBoxAdapter(child: _HeroSection()),
-            SliverToBoxAdapter(
+      body: CustomScrollView(
+        slivers: [
+          const SliverToBoxAdapter(child: _HeroSection()),
+          SliverSafeArea(
+            top: false,
+            sliver: SliverToBoxAdapter(
               child: Center(
                 child: ConstrainedBox(
                   constraints: const BoxConstraints(maxWidth: 960),
@@ -90,8 +91,8 @@ class SuperAppHomePage extends StatelessWidget {
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -104,7 +105,12 @@ class _HeroSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 64),
+      padding: EdgeInsets.fromLTRB(
+        24,
+        MediaQuery.paddingOf(context).top + 64,
+        24,
+        64,
+      ),
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topLeft,
