@@ -1,5 +1,3 @@
-import 'dart:typed_data';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:image_picker/image_picker.dart';
@@ -42,12 +40,7 @@ class ImageToPdfViewModel extends ChangeNotifier {
       final originalBytes = await file.readAsBytes();
       final compressedBytes = await compressImage(originalBytes);
 
-      _images.add(
-        SelectedImage(
-          name: file.name,
-          bytes: compressedBytes,
-        ),
-      );
+      _images.add(SelectedImage(name: file.name, bytes: compressedBytes));
     }
 
     notifyListeners();
@@ -107,10 +100,7 @@ class ImageToPdfViewModel extends ChangeNotifier {
         },
       );
 
-      await Printing.sharePdf(
-        bytes: pdfBytes,
-        filename: 'ez_image_to_pdf.pdf',
-      );
+      await Printing.sharePdf(bytes: pdfBytes, filename: 'ez_image_to_pdf.pdf');
     } finally {
       pdfBytes = null;
 

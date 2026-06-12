@@ -28,9 +28,8 @@ class SuperAppHomePage extends StatelessWidget {
                       children: [
                         Text(
                           '도구 목록',
-                          style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                                fontWeight: FontWeight.w800,
-                              ),
+                          style: Theme.of(context).textTheme.headlineSmall
+                              ?.copyWith(fontWeight: FontWeight.w800),
                         ),
                         const SizedBox(height: 20),
                         LayoutBuilder(
@@ -49,7 +48,8 @@ class SuperAppHomePage extends StatelessWidget {
                                   child: const _ToolCard(
                                     icon: '📄',
                                     title: 'EZ PDF',
-                                    description: '사진 여러 장을 하나의 PDF 문서로 쉽게 변환해 보세요.',
+                                    description:
+                                        '사진 여러 장을 하나의 PDF 문서로 쉽게 변환해 보세요.',
                                     buttonText: '시작하기',
                                     routeName: App.routeEzPdf,
                                   ),
@@ -59,7 +59,8 @@ class SuperAppHomePage extends StatelessWidget {
                                   child: const _ToolCard(
                                     icon: '▦',
                                     title: 'QR 생성기',
-                                    description: '링크, 와이파이, 연락처 정보를 QR 코드로 쉽게 만들어 보세요.',
+                                    description:
+                                        '링크, 와이파이, 연락처 정보를 QR 코드로 쉽게 만들어 보세요.',
                                     buttonText: '시작하기',
                                     routeName: App.routeQrGenerator,
                                   ),
@@ -67,10 +68,12 @@ class SuperAppHomePage extends StatelessWidget {
                                 SizedBox(
                                   width: cardWidth,
                                   child: const _ToolCard(
-                                    icon: '🛠️',
-                                    title: '준비 중',
-                                    description: '새로운 도구를 준비하고 있습니다.',
-                                    buttonText: 'Coming Soon',
+                                    icon: '▧',
+                                    title: '이미지 도구',
+                                    description:
+                                        '사진 압축, 크기 조절, 포맷 변환, 자르기, 회전을 기기 안에서 처리해 보세요.',
+                                    buttonText: '시작하기',
+                                    routeName: App.routeImageTools,
                                   ),
                                 ),
                               ],
@@ -124,17 +127,17 @@ class _HeroSection extends StatelessWidget {
             '일상을 더 편리하게',
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w800,
-                ),
+              color: Colors.white,
+              fontWeight: FontWeight.w800,
+            ),
           ),
           const SizedBox(height: 16),
           Text(
             '작지만 유용한 도구들을 한곳에 모았습니다.',
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  color: Colors.white.withOpacity(0.9),
-                ),
+              color: Colors.white.withValues(alpha: 0.9),
+            ),
           ),
         ],
       ),
@@ -177,7 +180,9 @@ class _ToolCard extends StatelessWidget {
               height: 56,
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.primaryContainer.withOpacity(0.45),
+                color: Theme.of(
+                  context,
+                ).colorScheme.primaryContainer.withValues(alpha: 0.45),
                 borderRadius: BorderRadius.circular(16),
               ),
               child: Text(icon, style: const TextStyle(fontSize: 28)),
@@ -185,21 +190,23 @@ class _ToolCard extends StatelessWidget {
             const SizedBox(height: 16),
             Text(
               title,
-              style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                    fontWeight: FontWeight.w800,
-                  ),
+              style: Theme.of(
+                context,
+              ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w800),
             ),
             const SizedBox(height: 8),
             Text(
               description,
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: Theme.of(context).colorScheme.onSurfaceVariant,
-                    height: 1.45,
-                  ),
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
+                height: 1.45,
+              ),
             ),
             const SizedBox(height: 18),
             FilledButton(
-              onPressed: enabled ? () => Navigator.of(context).pushNamed(routeName!) : null,
+              onPressed: enabled
+                  ? () => Navigator.of(context).pushNamed(routeName!)
+                  : null,
               child: Text(buttonText),
             ),
           ],
@@ -227,9 +234,9 @@ class _ContactCard extends StatelessWidget {
           children: [
             Text(
               '문의',
-              style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                    fontWeight: FontWeight.w800,
-                  ),
+              style: Theme.of(
+                context,
+              ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w800),
             ),
             const SizedBox(height: 12),
             const Text('서비스 이용 중 문의사항이나 제안이 있다면 아래 메일로 연락해주세요.'),
@@ -258,9 +265,9 @@ class _ContactCard extends StatelessWidget {
     }
 
     if (context.mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('메일 앱을 열 수 없습니다.')),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text('메일 앱을 열 수 없습니다.')));
     }
   }
 }
@@ -275,21 +282,16 @@ class _Footer extends StatelessWidget {
         children: [
           TextButton(
             onPressed: () async {
-              final uri = Uri.parse(
-                'https://skek933.cafe24.com/privacy',
-              );
-              await launchUrl(
-                uri,
-                mode: LaunchMode.externalApplication,
-              );
+              final uri = Uri.parse('https://skek933.cafe24.com/privacy');
+              await launchUrl(uri, mode: LaunchMode.externalApplication);
             },
             child: const Text('개인정보 처리방침'),
           ),
           Text(
             '© 2026 Hackyeon Kim. All rights reserved.',
             style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                  color: Theme.of(context).colorScheme.onSurfaceVariant,
-                ),
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
+            ),
           ),
         ],
       ),

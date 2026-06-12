@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 
 import 'core/theme/app_theme.dart';
 import 'features/home/super_app_home_page.dart';
+import 'features/image_tools/image_tools_page.dart';
 import 'features/image_to_pdf/image_to_pdf_page.dart';
 import 'features/qr_generator/qr_generator_page.dart';
 
@@ -11,6 +12,7 @@ class App extends StatelessWidget {
 
   static const routeHome = '/';
   static const routeEzPdf = '/tools/ez-pdf';
+  static const routeImageTools = '/tools/image-tools';
   static const routeQrGenerator = '/tools/qr-generator';
 
   @override
@@ -25,6 +27,7 @@ class App extends StatelessWidget {
         routes: {
           routeHome: (_) => const SuperAppHomePage(),
           routeEzPdf: (_) => const ImageToPdfPage(),
+          routeImageTools: (_) => const ImageToolsPage(),
           routeQrGenerator: (_) => const QrGeneratorPage(),
         },
       ),
