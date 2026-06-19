@@ -76,6 +76,15 @@ class SuperAppHomePage extends StatelessWidget {
                                     routeName: App.routeImageTools,
                                   ),
                                 ),
+                                SizedBox(
+                                  width: cardWidth,
+                                  child: const _ToolCard(
+                                    icon: '🛠️',
+                                    title: '준비 중',
+                                    description: '새로운 도구를 준비하고 있습니다.',
+                                    buttonText: 'Coming Soon',
+                                  ),
+                                ),
                               ],
                             );
                           },
