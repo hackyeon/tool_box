@@ -67,7 +67,6 @@ app.*.map.json
 /ios/Flutter/flutter_lldbinit
 /ios/Pods/
 /ios/.symlinks/
-/ios/Runner.xcworkspace/
 /ios/DerivedData/
 
 # macOS
