@@ -79,6 +79,17 @@ class SuperAppHomePage extends StatelessWidget {
                                 SizedBox(
                                   width: cardWidth,
                                   child: const _ToolCard(
+                                    icon: 'GIF',
+                                    title: '움짤 만들기',
+                                    description:
+                                        '동영상의 짧은 구간을 선택해 GIF 움짤로 변환해 보세요.',
+                                    buttonText: '시작하기',
+                                    routeName: App.routeVideoGif,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: cardWidth,
+                                  child: const _ToolCard(
                                     icon: '🛠️',
                                     title: '준비 중',
                                     description: '새로운 도구를 준비하고 있습니다.',

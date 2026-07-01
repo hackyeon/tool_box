@@ -6,6 +6,7 @@ import 'features/home/super_app_home_page.dart';
 import 'features/image_tools/image_tools_page.dart';
 import 'features/image_to_pdf/image_to_pdf_page.dart';
 import 'features/qr_generator/qr_generator_page.dart';
+import 'features/video_gif/video_gif_page.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -14,6 +15,7 @@ class App extends StatelessWidget {
   static const routeEzPdf = '/tools/ez-pdf';
   static const routeImageTools = '/tools/image-tools';
   static const routeQrGenerator = '/tools/qr-generator';
+  static const routeVideoGif = '/tools/video-gif';
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +31,7 @@ class App extends StatelessWidget {
           routeEzPdf: (_) => const ImageToPdfPage(),
           routeImageTools: (_) => const ImageToolsPage(),
           routeQrGenerator: (_) => const QrGeneratorPage(),
+          routeVideoGif: (_) => const VideoGifPage(),
         },
       ),
     );

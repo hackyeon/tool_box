@@ -9,5 +9,6 @@ void main() {
     expect(find.text('EZ PDF'), findsOneWidget);
     expect(find.text('QR 생성기'), findsOneWidget);
     expect(find.text('이미지 도구'), findsOneWidget);
+    expect(find.text('움짤 만들기'), findsOneWidget);
   });
 }
